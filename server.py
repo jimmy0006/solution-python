@@ -16,7 +16,6 @@ class File(sound_pb2_grpc.FileServicer):
         print(request.ping)
         return sound_pb2.Pong(pong='%s Pong!' % request.ping)
 
-
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     sound_pb2_grpc.add_FileServicer_to_server(File(), server)
