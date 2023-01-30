@@ -16,10 +16,11 @@ message Pong{
 }
 
 message SoundRequest{
-    bytes image = 1;
+    bytes sound = 1;
     string country = 2;
 }
 
 message SoundResponse{
     string res = 1;
+    double percent=2;
 }

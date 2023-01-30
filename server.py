@@ -4,20 +4,47 @@ import logging
 import grpc
 import sound_pb2
 import sound_pb2_grpc
+import os
+import pdb
+import sys
+
+
+sys.path.insert(1, '/home/jinmin645/server/model/EfficientAT')
+os.chdir("./model/EfficientAT")
+from model.EfficientAT.inference import inference
+os.chdir("../..")
 
 
 class File(sound_pb2_grpc.FileServicer):
 	
     def Define(self, request, context):
         print(request.country)
-        return sound_pb2.SoundResponse(res='Hello, %s!' % request.country)
+        f = open('./model/EfficientAT/resources/temp.wav','wb')
+        f.write(request.sound)
+        f.close()
+        temp=inference('./model/EfficientAT/resources/temp.wav')
+        print(temp)
+        keys = list(temp.keys())
+        maxpercent=0.0
+        result = keys[0]
+        for key in keys:
+            if temp[key]>maxpercent:
+                result = key
+                maxpercent = temp[key]
+        percent = temp[result]
+        return sound_pb2.SoundResponse(res=result, percent = percent)
 
     def Connect(self, request, context):
         print(request.ping)
         return sound_pb2.Pong(pong='%s Pong!' % request.ping)
 
 def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(
+        futures.ThreadPoolExecutor(max_workers=10),
+        options=(
+            
+        )
+    )
     sound_pb2_grpc.add_FileServicer_to_server(File(), server)
     server.add_insecure_port('[::]:8080')
     print("server on port 8080")

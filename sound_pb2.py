@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bsound.proto\x12\x05sound\"\x14\n\x04Ping\x12\x0c\n\x04ping\x18\x01 \x01(\t\"\x14\n\x04Pong\x12\x0c\n\x04pong\x18\x01 \x01(\t\".\n\x0cSoundRequest\x12\r\n\x05image\x18\x01 \x01(\x0c\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\"\x1c\n\rSoundResponse\x12\x0b\n\x03res\x18\x01 \x01(\t2`\n\x04\x46ile\x12\x33\n\x06\x44\x65\x66ine\x12\x13.sound.SoundRequest\x1a\x14.sound.SoundResponse\x12#\n\x07\x43onnect\x12\x0b.sound.Ping\x1a\x0b.sound.Pongb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bsound.proto\x12\x05sound\"\x14\n\x04Ping\x12\x0c\n\x04ping\x18\x01 \x01(\t\"\x14\n\x04Pong\x12\x0c\n\x04pong\x18\x01 \x01(\t\".\n\x0cSoundRequest\x12\r\n\x05sound\x18\x01 \x01(\x0c\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\"-\n\rSoundResponse\x12\x0b\n\x03res\x18\x01 \x01(\t\x12\x0f\n\x07percent\x18\x02 \x01(\x01\x32`\n\x04\x46ile\x12\x33\n\x06\x44\x65\x66ine\x12\x13.sound.SoundRequest\x1a\x14.sound.SoundResponse\x12#\n\x07\x43onnect\x12\x0b.sound.Ping\x1a\x0b.sound.Pongb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sound_pb2', globals())
@@ -27,7 +27,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SOUNDREQUEST._serialized_start=66
   _SOUNDREQUEST._serialized_end=112
   _SOUNDRESPONSE._serialized_start=114
-  _SOUNDRESPONSE._serialized_end=142
-  _FILE._serialized_start=144
-  _FILE._serialized_end=240
+  _SOUNDRESPONSE._serialized_end=159
+  _FILE._serialized_start=161
+  _FILE._serialized_end=257
 # @@protoc_insertion_point(module_scope)
