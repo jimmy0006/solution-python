@@ -17,7 +17,6 @@ message Pong{
 
 message SoundRequest{
     bytes sound = 1;
-    string country = 2;
 }
 
 message SoundResponse{
